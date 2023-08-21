@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game-Shop</title>
+</head>
+<body>
+
+<h1>Add-Game</h1>
+<form action="/add-game" method="post">
+    {{ form.game_name.label }}
+    {{ form.game_name }}
+    <br><br>
+    {{ form.game_description.label }}
+    {{ form.game_description }}
+    <br><br>
+    {{ form.quantity.label }}
+    {{ form.quantity }}
+    <br><br>
+    {{ form.game_prices.label }}
+    {{ form.game_prices }}
+    <br><br>
+    {{ form.game_link.label }}
+    {{ form.game_link }}
+    <br><br>
+    {{ form.add }}
+</form>
+<br>
+<a href="/">Главная</a>
+
+</body>
+</html>

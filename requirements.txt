@@ -1,0 +1,6 @@
+flask
+flask_sqlalchemy
+wtforms
+sqlalchemy
+flask_wtf
+jinja2

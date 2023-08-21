@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>ALL-GAME</h1>
+<a href="/">Главная страница</a> <a href="/delete">Удалить продукт</a>
+
+<hr>
+{% for i in game %}
+Название: {{ i.name }}
+<br>
+Описание: {{ i.description }}
+<br>
+Колличество: {{ i.quantity }}
+<br>
+Цена: {{ i.prices }}
+<br>
+<a href={{ i.link }}>Перейти по ссылке</a>
+<br>
+<hr>
+{% endfor %}
+
+
+</body>
+</html>
