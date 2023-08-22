@@ -1,5 +1,4 @@
 from database import db
-from datetime import datetime
 
 class User(db.Model):
     __tablename__ = 'users'
@@ -12,9 +11,11 @@ class User(db.Model):
 
 class Games(db.Model):
     __tablename__ = 'games'
-    id = db.Column(db.BigInteger(), autoincrement=True, primary_key=True)
+    game_id = db.Column(db.BigInteger(), primary_key=True, autoincrement=True )
     name = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(), nullable=False)
     quantity = db.Column(db.Integer(), nullable=False)
     prices = db.Column(db.Float(), nullable=False)
     link = db.Column(db.String(), nullable=False)
+
+

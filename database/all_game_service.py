@@ -5,3 +5,5 @@ def get_all_game(name, description, quantity, prices, link):
     db.session.get(get_games)
     db.session.commit()
     return get_games
+
+

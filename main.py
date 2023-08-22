@@ -1,8 +1,11 @@
 from flask import Flask, render_template, request, redirect, session
-from forms import add_game, login
+
+import forms
+from forms import add_game, login, delete_game
 from database.add_game_service import add_games
 from database import db
 from database.models import Games
+from database.delete_game_service import delete_game_service
 app = Flask(__name__)
 
 app.config['CSRF_ENABLED'] = True
@@ -70,6 +73,13 @@ def all_game():
     game = Games.query.all()
     return render_template('all-game.html', game=game)
 
+@app.route('/delete', methods=['POST','GET'])
+def del_exact_product():
+    id = forms.delete_game.game_id
+    if request.method == 'GET' and 'POST':
+        delete = delete_game_service(id)
+        print(delete)
+    return render_template('delete.html')
 
 with app.app_context():
     db.create_all()

@@ -7,7 +7,7 @@
 <body>
 
 <h1>ALL-GAME</h1>
-<a href="/">Главная страница</a> <a href="/delete">Удалить продукт</a>
+<a href="/">Главная страница</a>
 
 <hr>
 {% for i in game %}
@@ -19,7 +19,7 @@
 <br>
 Цена: {{ i.prices }}
 <br>
-<a href={{ i.link }}>Перейти по ссылке</a>
+<a href={{ i.link }}>Перейти по ссылке</a> <a href="/delete">Удалить игру</a>
 <br>
 <hr>
 {% endfor %}

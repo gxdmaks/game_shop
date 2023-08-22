@@ -2,6 +2,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SubmitField, TextAreaField, FloatField, IntegerField
 from wtforms.validators import DataRequired
 from database.models import *
+
 class add_game(FlaskForm):
     game_name = StringField('Game Name', validators=[DataRequired('Обязательно')])
     game_description = StringField('Game Description', validators=[DataRequired('Обязательно')])
@@ -15,3 +16,6 @@ class login(FlaskForm):
     password = StringField('Введите пароль', validators=[DataRequired()])
     login = SubmitField('Войти/Зарегистрироваться')
 
+class delete_game(FlaskForm):
+    game_id = IntegerField('Введите id игры', validators=[DataRequired('Обязательно')])
+    delete = SubmitField('Удалить')
