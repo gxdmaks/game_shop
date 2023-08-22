@@ -1,11 +1,11 @@
 from flask import Flask, render_template, request, redirect, session
 
-import forms
+
 from forms import add_game, login, delete_game
 from database.add_game_service import add_games
 from database import db
 from database.models import Games
-from database.delete_game_service import delete_game_service
+
 app = Flask(__name__)
 
 app.config['CSRF_ENABLED'] = True
@@ -15,7 +15,8 @@ app.config["SQLALCHEMY_DATABASE_URI"] = 'postgresql://postgres:909411216MAx@loca
 db.init_app(app)
 
 
-
+with app.app_context():
+    db.create_all()
 
 current_user_email = None
 
@@ -72,17 +73,19 @@ def register_user():
 def all_game():
     game = Games.query.all()
     return render_template('all-game.html', game=game)
-
+from forms import delete_game
+from database.delete_game_service import delete_current_game
 @app.route('/delete', methods=['POST','GET'])
 def del_exact_product():
-    id = forms.delete_game.game_id
-    if request.method == 'GET' and 'POST':
-        delete = delete_game_service(id)
+    form = delete_game()
+    id = form.id.data
+    print(id)
+    if form.validate_on_submit():
+        delete = delete_current_game(id=id)
         print(delete)
-    return render_template('delete.html')
+    return render_template('delete.html', form=form)
 
-with app.app_context():
-    db.create_all()
+
 
 app.run(debug=True)
 

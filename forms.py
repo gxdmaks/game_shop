@@ -17,5 +17,7 @@ class login(FlaskForm):
     login = SubmitField('Войти/Зарегистрироваться')
 
 class delete_game(FlaskForm):
-    game_id = IntegerField('Введите id игры', validators=[DataRequired('Обязательно')])
+    id = IntegerField('Введите id игры', validators=[DataRequired('Обязательно')])
     delete = SubmitField('Удалить')
+
+

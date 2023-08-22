@@ -11,7 +11,7 @@ class User(db.Model):
 
 class Games(db.Model):
     __tablename__ = 'games'
-    game_id = db.Column(db.BigInteger(), primary_key=True, autoincrement=True )
+    id = db.Column(db.BigInteger(), primary_key=True, autoincrement=True )
     name = db.Column(db.String(), nullable=False)
     description = db.Column(db.String(), nullable=False)
     quantity = db.Column(db.Integer(), nullable=False)
